@@ -10,4 +10,4 @@ Final assignment for the course "Deep Neural Networks with PyTorch" by IBM on Co
 
 ## Author(s)
 
-    Joseph Santarcangelo
+* Joseph Santarcangelo
