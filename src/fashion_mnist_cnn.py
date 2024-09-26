@@ -18,18 +18,20 @@ def show_data(data_sample: torch.Tensor) -> None:
     plt.title("y = " + str(data_sample[1]))
 
 
-def compose_transforms():
+def compose_transforms() -> transforms.Compose:
     """Compose transforms."""
     transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
     transforms.ToTensor(),
-    transforms.Compose(
+    composed = transforms.Compose(
         [transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)), transforms.ToTensor()]
     )
+    return composed
 
 
 def load_data(root: str = ".fashion/data") -> tuple:
     """Load Fashion MNIST dataset."""
     composed = compose_transforms()
+    
     dataset_train = dsets.FashionMNIST(
         root=root, train=True, transform=composed, download=True
     )
